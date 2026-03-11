@@ -4,7 +4,7 @@ import HeroSection from "@/pages/herosection";
 import ServicesSection from "@/pages/servicesection";
 import TestimonialsSection from "@/pages/testimonialsection";
 import FAQSection from "@/pages/faqsection";
-import { GlobeDemo } from "@/pages/vrview";
+import  GlobeDemo  from "@/pages/vrview";
 import MagneticCursor from "@/components/MagneticCursor";
 import VRProjectViewer from "@/pages/vr";
 // import  Globe  from "@/components/ui/globe";
