@@ -38,7 +38,7 @@ const faqs = [
 
 const FAQSection = () => {
   return (
-    <section id="faq" className="relative bg-black py-24 md:py-32 overflow-hidden">
+    <section id="faq" className="relative bg-[#0B132B] py-24 md:py-32 overflow-hidden">
       
       {/* SECTION MERGE: Smooth transition from the previous section */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-black" />

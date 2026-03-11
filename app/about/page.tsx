@@ -250,10 +250,11 @@
 
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect,  useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import {  AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import MagneticCursor from "@/components/MagneticCursor";
 // import { CheckCircle2, , Eye, Maximize, Play } from "lucide-react";
 import { 
   Maximize, 
@@ -327,6 +328,7 @@ const [isFullscreen, setIsFullscreen] = useState(false);
 const [currentIndex, setCurrentIndex] = useState(0);
   // const [showThumbnails, setShowThumbnails] = useState(true);
 
+
   const selectedTour = tourData[currentIndex];
 
   // 1. Navigation Logic
@@ -379,21 +381,22 @@ const [currentIndex, setCurrentIndex] = useState(0);
   ];
 
   return (
-    <main className="bg-black text-white min-h-screen selection:bg-orange-500/30">
+    <main className="bg-[#0B132B] text-white min-h-screen selection:bg-orange-500/30 cursor-none">
+ <MagneticCursor />
       {/* <Navbar/> */}
       {/* 1. HERO / STATS SECTION */}
       <section className="relative pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
             <motion.h6 variants={fadeUp} custom={0} className="text-orange-500 font-bold tracking-[0.3em] uppercase mb-4">About Us</motion.h6>
-            <motion.h1 variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-bold mb-6 leading-tight">Bridging Physical & <br/><span className="text-orange-500">Digital Reality</span></motion.h1>
+            <motion.h1  variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-bold mb-6 leading-tight">Bridging Physical & <br/><span className="text-orange-500">Digital Reality</span></motion.h1>
             <motion.p variants={fadeUp} custom={2} className="text-gray-400 text-lg leading-relaxed mb-8">
               At <span className="text-orange-500 font-semibold">Twelve Space Studio</span>, we empower brands with Web- and VR/AR-enabled 360° virtual tours and real-time visualizations that bring unbuilt environments to life.
             </motion.p>
           </motion.div>
           
           {/* 3D Glassy Stats Cards */}
-          <div className="grid grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 gap-6 cursor-none">
             {[ 
                 {v:"150+", l:"Projects Delivered"}, 
                 {v:"50+", l:"Happy Clients"},
@@ -401,11 +404,12 @@ const [currentIndex, setCurrentIndex] = useState(0);
             ].map((s, i) => (
               <motion.div 
                 key={i}
+                data-cursor-text="Prev"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.15 }}
                 whileHover={{ rotateY: 15, rotateX: -5, y: -10, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
-                className={`bg-white/5 backdrop-blur-2xl border border-white/10 p-8 rounded-[2rem] shadow-3d cursor-default transition-colors duration-500 ${i === 2 ? "col-span-2" : ""}`}
+                className={`bg-white/5 backdrop-blur-2xl cursor-none border border-white/10 p-8 rounded-[2rem] shadow-3d  transition-colors duration-500 ${i === 2 ? "col-span-2" : ""}`}
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <span className="text-4xl md:text-5xl font-bold text-orange-500 block mb-2">{s.v}</span>
@@ -417,18 +421,19 @@ const [currentIndex, setCurrentIndex] = useState(0);
       </section>
 
       {/* 2. FOUNDER SECTION - Slide from Outside Animation */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-16 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
           
           {/* IMAGE COMES FROM LEFT OUTSIDE SCREEN */}
           <motion.div 
             initial={{ x: -500, opacity: 0 }}
+            data-cursor-text="prev"
             whileInView={{ x: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative group rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-white/10 shadow-2xl"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60" />
+            <div  data-cursor-text="founder" className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60"   />
             {/* Placeholder for Ar. Jeevanandham Image */}
             <div className="w-full h-full bg-zinc-900 flex flex-col items-center justify-center text-gray-500">
                <span className="italic">Ar. Jeevanandham</span>
@@ -457,32 +462,95 @@ const [currentIndex, setCurrentIndex] = useState(0);
       </section>
 
       {/* 3. MISSION & VISION */}
-      <section className="py-32 bg-zinc-950/40">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
-          {[
-            { Icon: Target, title: "Our Mission", text: "To help real estate developers, architects, and property brands stand out in the digital world by creating interactive digital assets that make properties more engaging and easier to sell" },
-            { Icon: Eye, title: "Our Vision", text: "We aim to become a trusted partner for property creators where every project is experienced online with clarity, realism, and impact" }
-          ].map((item, i) => (
-            <motion.div 
-               key={i}
-               whileHover={{ y: -15, rotateY: 5, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
-               className="p-12 rounded-[2.5rem] bg-white/5 backdrop-blur-3xl border border-white/10 shadow-3d transition-all duration-500"
-               style={{ transformStyle: "preserve-3d" }}
-            >
-              <item.Icon className="text-orange-500 mb-8" size={48} />
-              <h3 className="text-3xl font-bold mb-6 text-white">{item.title}</h3>
-              <p className="text-gray-400 text-lg leading-relaxed font-light">{item.text}.</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+    <section className="py-16 bg-[#0B132B] relative overflow-hidden">
+
+  {/* Section Header */}
+  <div className="max-w-3xl mx-auto text-center mb-20 px-6">
+    <p className="text-orange-500 text-xs tracking-[0.35em] uppercase font-bold mb-4">
+      Our Purpose
+    </p>
+
+    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+      Shaping the Future of <span className="text-orange-500">Digital Spaces</span>
+    </h2>
+
+    <p className="text-gray-400 text-lg leading-relaxed">
+      At <span className="text-orange-500 font-semibold">Twelve Space Studio</span>, 
+      our mission and vision guide every project we create.  
+      We combine technology, design, and immersive storytelling to help brands 
+      communicate spaces in powerful new ways.
+    </p>
+  </div>
+
+  {/* Cards */}
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+
+    {[
+      {
+        Icon: Target,
+        title: "Our Mission",
+        text: "To empower real estate developers, architects, and property brands with immersive digital experiences that transform how people explore, understand, and connect with spaces."
+      },
+      {
+        Icon: Eye,
+        title: "Our Vision",
+        text: "To redefine how architecture and real estate are experienced online by creating interactive virtual environments that make every project accessible from anywhere in the world."
+      }
+    ].map((item, i) => (
+
+      <motion.div
+        key={i}
+
+        data-cursor-text={item.title}
+
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: i * 0.2, duration: 0.6 }}
+
+        whileHover={{
+          y: -18,
+          rotateX: -5,
+          rotateY: 8,
+          scale: 1.02
+        }}
+
+        className="group relative p-12 rounded-[2.5rem] bg-white/[0.03] backdrop-blur-3xl border border-white/10 shadow-2xl transition-all duration-500"
+        style={{ transformStyle: "preserve-3d" }}
+      >
+
+        {/* Glow Gradient */}
+        <div className="absolute inset-0 rounded-[2.5rem] opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-orange-500/10 via-transparent to-orange-400/10" />
+
+        {/* Icon */}
+        <item.Icon
+          className="text-orange-500 mb-8 relative z-10"
+          size={48}
+        />
+
+        {/* Title */}
+        <h3 className="text-3xl font-bold mb-6 text-white relative z-10">
+          {item.title}
+        </h3>
+
+        {/* Text */}
+        <p className="text-gray-400 text-lg leading-relaxed font-light relative z-10">
+          {item.text}
+        </p>
+
+      </motion.div>
+
+    ))}
+
+  </div>
+</section>
 
       {/* 4. 360 VIRTUAL TOUR SHOWCASE */}
 
-<section className="py-24 px-6 bg-black">
+
+<section className="py-24 px-6 bg-[#0B132B]">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h6 className="text-orange-500 text-xs font-bold uppercase tracking-[0.4em] mb-4">The Experience</h6>
+        <div data-cursor-text="Explore" className="text-center mb-12">
+          <h6 data-cursor-text="Explore"className="text-orange-500 text-xs font-bold uppercase tracking-[0.4em] mb-4">The Experience</h6>
           <h2 className="text-4xl md:text-5xl font-bold text-white">360° Interactive Showroom</h2>
         </div>
 
@@ -508,7 +576,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
           </div>
 
           {/* BOTTOM UI: CONTROL BAR */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-fit z-40">
+          {/* <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-fit z-40">
             <div className="bg-black/80 backdrop-blur-2xl border border-white/20 rounded-full px-8 py-4 flex items-center gap-10">
               <button onClick={() => setShowThumbnails(!showThumbnails)} className={showThumbnails ? 'text-orange-500' : 'text-white/60'}>
                 <Grid size={20} />
@@ -527,7 +595,7 @@ const [currentIndex, setCurrentIndex] = useState(0);
                 {isFullscreen ? <X size={22} /> : <Maximize size={20} />}
               </button>
             </div>
-          </div>
+          </div> */}
 
           {/* THUMBNAIL SLIDER */}
           <AnimatePresence>
@@ -536,20 +604,20 @@ const [currentIndex, setCurrentIndex] = useState(0);
                 initial={{ y: 120, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 120, opacity: 0 }}
-                className="absolute bottom-28 left-0 w-full px-8 z-30"
+                className="absolute top-14 right-0 w-full px-8 z-30"
               >
-                <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar justify-center">
+                <div className="flex gap- overflow-x-auto pb-4 no-scrollbar ">
                   {tourData.map((tour, index) => (
                     <motion.div 
                       key={tour.id}
                       onClick={() => setCurrentIndex(index)}
                       whileHover={{ y: -5 }}
-                      className={`min-w-[160px] aspect-video rounded-xl overflow-hidden border-2 relative cursor-pointer transition-all ${
-                        currentIndex === index ? "border-orange-500 scale-105" : "border-white/10 opacity-60"
+                      className={`min-w-[100px] aspect-video rounded-xl overflow-hidden  relative cursor-pointer transition-all ${
+                        currentIndex === index ? "" : "border-white/10 opacity-60"
                       }`}
                     >
-                      <img src={tour.thumb} className="w-full h-full object-cover" alt={tour.name} />
-                      <div className="absolute bottom-2 left-2 text-[9px] font-bold text-white bg-black/50 px-2 py-1 rounded">
+                      {/* <img src={tour.thumb} className="w-full h-full object-cover" alt={tour.name} /> */}
+                      <div className="absolute bottom-2 left-2 text-[9px] font-bold text-white bg-black/90 px-2 py-1 rounded">
                         {tour.id} {tour.name}
                       </div>
                     </motion.div>

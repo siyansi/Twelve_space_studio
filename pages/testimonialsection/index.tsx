@@ -41,7 +41,7 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section id="testimonials" className="relative bg-black py-24 md:py-32 overflow-hidden">
+    <section id="testimonials" className="relative bg-[#0B132B] py-24 md:py-32 overflow-hidden">
       
       {/* SECTION MERGE: Blends with the section above */}
       <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-transparent to-black" />

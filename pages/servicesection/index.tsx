@@ -143,23 +143,33 @@ const services = [
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-20 md:py-32 bg-gradient-to-b from-[#0B1220] via-[#0B2639] to-[#0B1220]  ">
+    <section id="services" className="py-20 md:py-32  bg-[#0B132B]  gradient-to-b from-[#0B1220] via-[#0B2639] to-[#0B1220]  ">
       <div className="max-w-7xl mx-auto px-6">
+   <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Header with Magnetic Trigger */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-24"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          data-cursor-text="SERVICES"
         >
-         <h6 className="text-[#F24E24] text-sm font-semibold uppercase tracking-widest mb-4">
-  OUR SERVICES
-</h6>
-
-<h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-[#E5E7EB]">
-  Creative Designs For Inspiring Spaces
-</h2>
+          <h6 className="text-[#F24E24] text-sm font-semibold uppercase tracking-[0.4em] mb-4">
+            OUR EXPERTISE
+          </h6>
+          <h2 className="text-4xl md:text-6xl font-display font-bold text-white/90">
+            Creative Designs For <br/> <span className="text-[#F24E24] italic">Inspiring Spaces</span>
+          </h2>
         </motion.div>
+
+        {/* <div className="space-y-40">
+          {services.map((service, i) => (
+            <ServiceCard key={service.number} service={service} index={i} />
+          ))}
+        </div> */}
+      </div>
 
         <div className="space-y-24 ">
           {services.map((service, i) => (
@@ -177,7 +187,7 @@ const ServicesSection = () => {
                 style={{ perspective: "1000px" }}
               >
                 <motion.div
-                 className="overflow-hidden rounded-2xl shadow-2xl bg-[#ceccd9] p-1 border border-white/5"
+                 className="overflow-hidden rounded-2xl shadow-2xl bg-[#1A1A1A] p-1 border border-white/5"
                   whileHover={{ rotateY: 3, rotateX: -2 }}
                   transition={{ duration: 0.4 }}
                   style={{ transformStyle: "preserve-3d" }}
