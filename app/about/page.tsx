@@ -254,7 +254,11 @@ import React, { useState, useEffect,  useRef } from "react";
 import { motion, Variants } from "framer-motion";
 import {  AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { FaLinkedin } from "react-icons/fa";
+import heroimage from "../../assets/hero.jpg";
 import MagneticCursor from "@/components/MagneticCursor";
+import heroimage2 from "../../assets/Adobe Express - file.png";
+
 // import { CheckCircle2, , Eye, Maximize, Play } from "lucide-react";
 import { 
   Maximize, 
@@ -385,81 +389,192 @@ const [currentIndex, setCurrentIndex] = useState(0);
  <MagneticCursor />
       {/* <Navbar/> */}
       {/* 1. HERO / STATS SECTION */}
+
+  
+      
+
       <section className="relative pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <motion.h6 variants={fadeUp} custom={0} className="text-orange-500 font-bold tracking-[0.3em] uppercase mb-4">About Us</motion.h6>
-            <motion.h1  variants={fadeUp} custom={1} className="text-4xl md:text-6xl font-bold mb-6 leading-tight">Bridging Physical & <br/><span className="text-orange-500">Digital Reality</span></motion.h1>
-            <motion.p variants={fadeUp} custom={2} className="text-gray-400 text-lg leading-relaxed mb-8">
-              At <span className="text-orange-500 font-semibold">Twelve Space Studio</span>, we empower brands with Web- and VR/AR-enabled 360° virtual tours and real-time visualizations that bring unbuilt environments to life.
-            </motion.p>
-          </motion.div>
-          
-          {/* 3D Glassy Stats Cards */}
-          <div className="grid grid-cols-2 gap-6 cursor-none">
-            {[ 
-                {v:"150+", l:"Projects Delivered"}, 
-                {v:"50+", l:"Happy Clients"},
-                {v:"5+", l:"Years Experience"} 
-            ].map((s, i) => (
-              <motion.div 
-                key={i}
-                data-cursor-text="Prev"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15 }}
-                whileHover={{ rotateY: 15, rotateX: -5, y: -10, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
-                className={`bg-white/5 backdrop-blur-2xl cursor-none border border-white/10 p-8 rounded-[2rem] shadow-3d  transition-colors duration-500 ${i === 2 ? "col-span-2" : ""}`}
-                style={{ transformStyle: "preserve-3d" }}
-              >
-                <span className="text-4xl md:text-5xl font-bold text-orange-500 block mb-2">{s.v}</span>
-                <span className="text-xs text-gray-500 uppercase tracking-widest font-medium">{s.l}</span>
-              </motion.div>
-            ))}
-          </div>
+       <div className="max-w-7xl mx-auto">
+    
+    {/* BIG PAGE HEADING */}
+    <div className="flex justify-between  ">
+
+    <div className="mb-24 ">
+      <motion.p 
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        className="text-orange-500 font-bold tracking-[0.5em] uppercase mb-4 text-xs"
+      >
+        Twelve Space Studio
+      </motion.p>
+      {/* <FallingLetters text="THE EXPERIENCE" /> */}
+      <div className="flex gap-4 items-center">
+         <div className="h-[2px] w-20 bg-orange-500" />
+         <span className="text-4xl md:text-6xl font-light italic">Revolution</span>
+      </div>
+        
+    </div>
+    <div className="pr-30 ">
+    <img 
+      src={heroimage2.src}
+      alt="Architectural visualization" 
+      className=" object-cover h-42  transition-transform duration-500 group-hover:scale-105 "
+    />
+    {/* Glowing border effect on hover */}
+    {/* <div className="absolute inset-0 border-2 border-orange-500/0 rounded-2xl group-hover:border-orange-500 group-hover:drop-shadow-[0_0_15px_rgba(255,107,0,0.5)] transition-all duration-300 pointer-events-none" /> */}
+  </div>
+</div>
+    <div className="grid lg:grid-cols-12 gap-20 items-start">
+      
+      {/* LEFT CONTENT */}
+      <motion.div 
+        className="lg:col-span-7"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <h2 className="text-4xl md:text-6xl font-bold mb-10 leading-tight">
+          Engineering the <span className="text-orange-500">Experience</span> <br/>
+          of Being There.
+        </h2>
+
+        <div className="space-y-8 text-gray-400 text-xl leading-relaxed max-w-2xl">
+          <p>
+            We empower brands with custom, web-integrated <span className="text-white font-medium">360° tours</span> and real-time 3D visualizations that can be experienced seamlessly across mobile, desktop, and VR.
+          </p>
+          <p>
+            At Twelve Space Studio, we don’t just visualize architecture; we engineer the experience of being there, turning potential buyers into <span className="text-orange-500 font-semibold underline underline-offset-8">confident investors</span>.
+          </p>
         </div>
+      </motion.div>
+
+      {/* RIGHT STATS - 3D GLASSY CARDS */}
+      <div className="lg:col-span-5 grid grid-cols-2 gap-8">
+        {[ 
+          {v:"150+", l:"Projects"}, 
+          {v:"50+", l:"Clients"},
+          {v:"5+", l:"Years Exp"} 
+        ].map((s, i) => (
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, rotateY: -30 }}
+            whileInView={{ opacity: 1, rotateY: 0 }}
+            transition={{ delay: i * 0.2 }}
+            whileHover={{ 
+              rotateY: 20, 
+              rotateX: -10, 
+              scale: 1.05,
+              borderColor: "#F24E24"
+            }}
+            className={`bg-[#34D399]/5 backdrop-blur-3xl border border-white/5 p-12 rounded-[3rem] transition-all duration-500 flex flex-col items-center justify-center text-center ${i === 2 ? "col-span-2" : ""}`}
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            <span className="text-5xl md:text-7xl font-bold text-orange-500 block mb-3 tracking-tighter">
+              {s.v}
+            </span>
+            <span className="text-xs text-gray-500 uppercase tracking-widest font-black">
+              {s.l}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </div>
       </section>
 
       {/* 2. FOUNDER SECTION - Slide from Outside Animation */}
-      <section className="py-16 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-          
-          {/* IMAGE COMES FROM LEFT OUTSIDE SCREEN */}
-          <motion.div 
-            initial={{ x: -500, opacity: 0 }}
-            data-cursor-text="prev"
-            whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative group rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-white/10 shadow-2xl"
-          >
-            <div  data-cursor-text="founder" className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60"   />
-            {/* Placeholder for Ar. Jeevanandham Image */}
-            <div className="w-full h-full bg-zinc-900 flex flex-col items-center justify-center text-gray-500">
-               <span className="italic">Ar. Jeevanandham</span>
-               <span className="text-[10px] uppercase tracking-tighter mt-2">Founder & Creative Director</span>
-            </div>
-            {/* Decorative Orange Line */}
-            <div className="absolute bottom-0 left-0 w-full h-2 bg-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left z-20" />
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
-          >
-            <h2 className="text-3xl font-bold text-white mb-2">Ar. Jeevanandham</h2>
-            <p className="text-orange-500 font-bold tracking-widest text-sm uppercase mb-8">Founder & Creative Director</p>
-            <div className="relative">
-                <QuoteIcon className="absolute -top-6 -left-8 text-orange-500/20 w-16 h-16" />
-                <p className="relative text-gray-300 text-xl md:text-2xl italic leading-relaxed font-light z-10">
-                "Reimagining the boundaries of physical and digital reality, making the immersive experience of space accessible to anyone, anywhere".
-                </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+     <section className="py-24 relative overflow-hidden">
+
+  {/* Background Glow */}
+  {/* <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-orange-500/10 blur-[140px] rounded-full" />
+  <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-blue-500/10 blur-[140px] rounded-full" /> */}
+
+  <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center relative z-10">
+
+    {/* IMAGE BLOCK */}
+    <motion.div
+      initial={{ x: -500, opacity: 0 }}
+      whileInView={{ x: 0, opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+      className="relative group rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-white/10 shadow-[0_40px_120px_-20px_rgba(0,0,0,0.8)]"
+    >
+
+      {/* Image */}
+      <div className="w-full h-full bg-zinc-900 flex flex-col items-center justify-center text-gray-500 group-hover:scale-105 transition-transform duration-700">
+        {/* Replace this with your Image */}
+          <Image 
+            src={heroimage}
+            alt="Ar. Jeevanandham"
+              className="object-cover w-full h-full"
+           
+          />
+        {/* <span className="italic text-lg">Ar. Jeevanandham</span>
+        <span className="text-[10px] uppercase tracking-widest mt-2">
+          Founder & Creative Director
+        </span> */}
+      </div>
+
+      {/* Overlay Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60" />
+
+      {/* Bottom Accent Line */}
+      <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left z-20" />
+
+    </motion.div>
+
+    {/* TEXT CONTENT */}
+    <motion.div
+      initial={{ opacity: 0, x: 60 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 1, delay: 0.3 }}
+      className="relative"
+    >
+
+      <h2 className="text-4xl md:text-5xl font-bold text-white mb-2 tracking-tight">
+        Ar. Jeevanandham
+      </h2>
+
+      <p className="text-orange-500 font-semibold tracking-[0.3em] text-sm uppercase mb-6">
+        Founder & Creative Director
+      </p>
+
+      {/* LinkedIn */}
+      <a
+        href="https://www.linkedin.com/in/jeeva-nandham/"
+        target="_blank"
+        className="inline-flex items-center gap-3 mb-10 text-gray-300 hover:text-white transition"
+      >
+        <FaLinkedin className="text-orange-500 text-xl" />
+        <span className="text-sm tracking-wide">
+          Connect on LinkedIn
+        </span>
+      </a>
+
+      {/* Quote */}
+      <div className="relative backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-8">
+
+        <svg
+          className="absolute -top-8 -left-6 w-20 h-20 text-orange-500/20"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M7.17 6A5.001 5.001 0 002 11v7h7v-7H6.83A3.001 3.001 0 0110 8V6H7.17zM17.17 6A5.001 5.001 0 0012 11v7h7v-7h-2.17A3.001 3.001 0 0120 8V6h-2.83z"/>
+        </svg>
+
+        <p className="relative text-gray-300 text-xl md:text-2xl italic leading-relaxed font-light z-10">
+          "Reimagining the boundaries of physical and digital reality,
+          making the immersive experience of space accessible to anyone,
+          anywhere."
+        </p>
+
+      </div>
+
+    </motion.div>
+
+  </div>
+</section>
 
       {/* 3. MISSION & VISION */}
     <section className="py-16 bg-[#0B132B] relative overflow-hidden">
@@ -650,3 +765,346 @@ function QuoteIcon({ className }: { className?: string }) {
         </svg>
     )
 }
+
+
+
+
+
+
+// "use client";
+
+// import { useState, useEffect } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { ArrowRight, Eye, MoveLeft, MoveRight } from "lucide-react";
+// import Image from "next/image";
+
+// /* PROJECT IMAGES */
+// import projectLiving from "@/assets/project-living-room.jpg";
+// import projectBedroom from "@/assets/project-bedroom.jpg";
+// import projectKitchen from "@/assets/project-kitchen.jpg";
+// import projectBalcony from "@/assets/project-balcony.jpg";
+// import projectGarden from "@/assets/project-garden.jpg";
+// import projectTerrace from "@/assets/project-terrace.jpg";
+// import projectBathroom from "@/assets/project-bathroom.jpg";
+// import projectOffice from "@/assets/project-office.jpg";
+
+// /* BEFORE IMAGES */
+// import beforeLiving from "@/assets/before-living.jpg";
+// import beforeKitchen from "@/assets/before-kitchen.jpg";
+// import beforeBedroom from "@/assets/before-bedroom.jpg";
+
+// /* ===============================
+//    STATS COUNTER
+// ================================ */
+
+// const StatCounter = ({ end, label }: { end: number; label: string }) => {
+//   const [count, setCount] = useState(0);
+
+//   useEffect(() => {
+//     let start = 0;
+//     const duration = 2000;
+//     const increment = end / (duration / 16);
+
+//     const timer = setInterval(() => {
+//       start += increment;
+
+//       if (start >= end) {
+//         setCount(end);
+//         clearInterval(timer);
+//       } else {
+//         setCount(Math.floor(start));
+//       }
+//     }, 16);
+
+//     return () => clearInterval(timer);
+//   }, [end]);
+
+//   return (
+//     <div className="text-center">
+//       <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+//         {count}+
+//       </div>
+
+//       <div className="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-bold">
+//         {label}
+//       </div>
+//     </div>
+//   );
+// };
+
+// /* ===============================
+//    BEFORE AFTER SLIDER
+// ================================ */
+
+// const BeforeAfter = ({
+//   before,
+//   after,
+//   title,
+// }: {
+//   before: any;
+//   after: any;
+//   title: string;
+// }) => {
+//   const [sliderPos, setSliderPos] = useState(50);
+
+//   return (
+//     <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-zinc-900">
+//       <div className="relative h-[420px] w-full select-none overflow-hidden">
+//         <Image src={after} alt="after" fill className="object-cover" />
+
+//         <motion.div
+//           className="absolute inset-y-0 left-0 z-10 overflow-hidden"
+//           style={{ width: `${sliderPos}%` }}
+//         >
+//           <div className="relative h-full w-[100vw]">
+//             <Image src={before} alt="before" fill className="object-cover" />
+//           </div>
+//         </motion.div>
+
+//         {/* slider line */}
+
+//         <div
+//           className="absolute inset-y-0 z-20 w-1 bg-white"
+//           style={{ left: `${sliderPos}%` }}
+//         >
+//           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-xl">
+//             <MoveLeft size={14} className="text-black" />
+//             <MoveRight size={14} className="text-black" />
+//           </div>
+//         </div>
+
+//         <input
+//           type="range"
+//           min="0"
+//           max="100"
+//           value={sliderPos}
+//           onChange={(e) => setSliderPos(Number(e.target.value))}
+//           className="absolute inset-0 opacity-0 cursor-ew-resize z-30 w-full h-full"
+//         />
+//       </div>
+
+//       <div className="p-6 text-center">
+//         <h4 className="text-white font-bold">{title}</h4>
+//       </div>
+//     </div>
+//   );
+// };
+
+// /* ===============================
+//    PORTFOLIO PAGE
+// ================================ */
+
+// export default function PortfolioPage() {
+//   const [filter, setFilter] = useState("All");
+
+//   const projects = [
+//     {
+//       title: "Modern Living Room",
+//       loc: "Dubai, UAE",
+//       cat: "Interior",
+//       img: projectLiving,
+//     },
+//     {
+//       title: "Chef's Kitchen",
+//       loc: "London, UK",
+//       cat: "Interior",
+//       img: projectKitchen,
+//     },
+//     {
+//       title: "Master Bedroom",
+//       loc: "Mumbai, India",
+//       cat: "Interior",
+//       img: projectBedroom,
+//     },
+//     {
+//       title: "Luxury Balcony",
+//       loc: "Sydney",
+//       cat: "Exterior",
+//       img: projectBalcony,
+//     },
+//     {
+//       title: "Garden Retreat",
+//       loc: "Bangkok",
+//       cat: "Exterior",
+//       img: projectGarden,
+//     },
+//     {
+//       title: "Sky Terrace",
+//       loc: "Singapore",
+//       cat: "Exterior",
+//       img: projectTerrace,
+//     },
+//     {
+//       title: "Spa Bathroom",
+//       loc: "Milan",
+//       cat: "Interior",
+//       img: projectBathroom,
+//     },
+//     {
+//       title: "Creative Office",
+//       loc: "New York",
+//       cat: "Commercial",
+//       img: projectOffice,
+//     },
+//   ];
+
+//   const filtered =
+//     filter === "All" ? projects : projects.filter((p) => p.cat === filter);
+
+//   return (
+//     <div className="min-h-screen bg-[#050A09] text-white py-20 px-6">
+//       {/* HEADER */}
+
+//       <section className="max-w-7xl mx-auto text-center mb-32">
+//         <span className="text-[#F97316] uppercase tracking-[0.5em] text-xs font-black">
+//           Our Work
+//         </span>
+
+//         <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter mt-4 mb-6">
+//           Design{" "}
+//           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F97316] to-white">
+//             Portfolio
+//           </span>
+//         </h1>
+
+//         <p className="max-w-2xl mx-auto text-gray-500 text-lg">
+//           Explore our curated collection of interior, exterior and commercial
+//           spaces designed using immersive VR visualization.
+//         </p>
+//       </section>
+
+//       {/* STATS */}
+
+//       <section className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-40 border-y border-white/5 py-16">
+//         <StatCounter end={120} label="Projects Completed" />
+//         <StatCounter end={45} label="Happy Clients" />
+//         <StatCounter end={8} label="Design Awards" />
+//         <StatCounter end={15} label="Countries" />
+//       </section>
+
+//       {/* FILTER */}
+
+//       <div className="flex justify-center gap-4 mb-20 flex-wrap">
+//         {["All", "Interior", "Exterior", "Commercial"].map((cat) => (
+//           <button
+//             key={cat}
+//             onClick={() => setFilter(cat)}
+//             className={`px-8 py-3 rounded-full text-xs font-bold tracking-widest uppercase transition-all border
+//             ${
+//               filter === cat
+//                 ? "bg-[#F97316] border-[#F97316] text-black"
+//                 : "border-white/10 text-gray-400 hover:border-[#F97316]"
+//             }`}
+//           >
+//             {cat}
+//           </button>
+//         ))}
+//       </div>
+
+//       {/* PROJECT GRID */}
+
+//       <motion.div
+//         layout
+//         className="max-w-7xl mx-auto grid md:grid-cols-3 gap-10 mb-40"
+//       >
+//         <AnimatePresence>
+//           {filtered.map((p) => (
+//             <motion.div
+//               key={p.title}
+//               layout
+//               initial={{ opacity: 0, scale: 0.9 }}
+//               animate={{ opacity: 1, scale: 1 }}
+//               exit={{ opacity: 0, scale: 0.9 }}
+//               transition={{ duration: 0.5 }}
+//               className="group relative h-[450px] rounded-[2.5rem] overflow-hidden bg-zinc-900 border border-white/5"
+//             >
+//               <Image
+//                 src={p.img}
+//                 alt={p.title}
+//                 fill
+//                 className="object-cover opacity-70 group-hover:scale-110 transition-transform duration-1000"
+//               />
+
+//               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+
+//               {/* hover */}
+
+//               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+//                 <div className="flex flex-col items-center gap-2">
+//                   <div className="w-14 h-14 bg-[#F97316] rounded-full flex items-center justify-center text-black">
+//                     <Eye size={24} />
+//                   </div>
+
+//                   <span className="text-xs font-bold uppercase tracking-tighter">
+//                     View Project
+//                   </span>
+//                 </div>
+//               </div>
+
+//               {/* text */}
+
+//               <div className="absolute bottom-10 left-10 right-10">
+//                 <span className="text-[#F97316] text-[10px] font-black uppercase tracking-[0.3em] mb-2 block">
+//                   {p.cat}
+//                 </span>
+
+//                 <h3 className="text-2xl font-bold text-white">{p.title}</h3>
+
+//                 <p className="text-gray-500 text-xs mt-1">{p.loc}</p>
+//               </div>
+//             </motion.div>
+//           ))}
+//         </AnimatePresence>
+//       </motion.div>
+
+//       {/* BEFORE AFTER */}
+
+//       <section className="max-w-7xl mx-auto mb-40">
+//         <div className="text-center mb-16">
+//           <span className="text-[#F97316] uppercase tracking-[0.5em] text-[10px] font-black">
+//             Transformations
+//           </span>
+
+//           <h2 className="text-5xl font-bold mt-4">Before & After</h2>
+
+//           <p className="text-gray-400 mt-2">
+//             Drag the slider to reveal the transformation
+//           </p>
+//         </div>
+
+//         <div className="grid md:grid-cols-3 gap-10">
+//           <BeforeAfter
+//             before={beforeLiving}
+//             after={projectLiving}
+//             title="Living Room Transformation"
+//           />
+
+//           <BeforeAfter
+//             before={beforeKitchen}
+//             after={projectKitchen}
+//             title="Kitchen Renovation"
+//           />
+
+//           <BeforeAfter
+//             before={beforeBedroom}
+//             after={projectBedroom}
+//             title="Bedroom Redesign"
+//           />
+//         </div>
+//       </section>
+
+//       {/* CTA */}
+
+//       <section className="max-w-7xl mx-auto rounded-[4rem] bg-[#F97316] p-20 text-center text-black">
+//         <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-8">
+//           Ready to Visualize <br /> Your Project?
+//         </h2>
+
+//         <button className="bg-black text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest flex items-center gap-4 mx-auto hover:scale-105 transition-transform">
+//           Start the Journey <ArrowRight size={20} />
+//         </button>
+//       </section>
+//     </div>
+//   );
+// }
+

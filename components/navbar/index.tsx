@@ -105,7 +105,7 @@ import Image from "next/image";
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "Services", href: "/concept" },
+  { label: "Portfolio", href: "/concept" },
   { label: "Blogs", href: "/blogs" },
   //  { label: "Concept", href: "/concept" },
   { label: "Contact", href: "/contact" },
@@ -120,9 +120,9 @@ const Navbar = () => {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed top-0 left-0 right-0 z-50 bg-[#0B1220]/70 backdrop-blur-lg border-b border-white/10"
+      className="fixed top-0 left-0 right-0 z-50 bg-[#0B1220]/70 backdrop-blur-sm border-b border-white/10"
     >
-      <div className="max-w-8xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
+      <div className="max-w-8xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20" style={{ fontFamily: 'Poppins' }}>
         
         {/* Logo */}
        <Link href="/" className="flex items-cente gap-3 group">

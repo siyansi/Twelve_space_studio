@@ -21,7 +21,7 @@ export default function Home() {
         <HeroSection />
      
         <ServicesSection />
-        <GlobeDemo />
+        {/* <GlobeDemo /> */}
         <TestimonialsSection />
 <VRProjectViewer/>
         <FAQSection />

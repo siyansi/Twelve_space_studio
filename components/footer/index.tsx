@@ -7,7 +7,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contact" className="relative bg-black border-t border-white/10 overflow-hidden">
+    <footer id="contact" className="relative bg-black border-t border-white/10 overflow-hidden" style={{ fontFamily: 'Poppins' }}>
       
       {/* Subtle background glow to merge with the section above */}
       <div className="absolute top-0 left-1/4 w-64 h-64 bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" />

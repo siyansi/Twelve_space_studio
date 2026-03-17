@@ -21,6 +21,17 @@ const fadeUp: Variants = {
   }),
 };
 
+
+const clientsRow1 = [
+  "Prestige Group", "Adani Realty", "Century Real Estate", "Embassy Group",
+  "Sattva Group", "Bhartiya City", "M3M India", "Shapoorji Pallonji",
+];
+
+const clientsRow2 = [
+  "Deloitte", "Wipro", "Asian Paints", "HP",
+  "Volvo", "Karle Town Centre", "Bren Corp", "Svamitva",
+];
+
 const faqs = [
   {
     q: "Who are your services best suited for?",
@@ -38,6 +49,7 @@ const faqs = [
 
 const FAQSection = () => {
   return (
+    <>
     <section id="faq" className="relative bg-[#0B132B] py-24 md:py-32 overflow-hidden">
       
       {/* SECTION MERGE: Smooth transition from the previous section */}
@@ -94,6 +106,87 @@ const FAQSection = () => {
       {/* Decorative background glow */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />
     </section>
+
+<section className="py-20 bg-[#0B132B] overflow-hidden border-y border-white/5">
+      <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
+        <motion.h6 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="text-[#F24E24] text-xs font-bold uppercase tracking-[0.4em]"
+        >
+          Trusted by Industry Leaders
+        </motion.h6>
+      </div>
+
+      <div className="flex flex-col gap-8">
+        {/* ROW 1: Right to Left */}
+        <div className="relative flex overflow-hidden">
+          <div className="flex animate-marquee whitespace-nowrap gap-12 py-4">
+            {[...clientsRow1, ...clientsRow1].map((client, i) => (
+              <div 
+                key={i} 
+                className="text-2xl md:text-4xl font-display font-bold text-white/20 hover:text-[#F24E24] transition-colors duration-500 cursor-default select-none uppercase tracking-tighter italic"
+              >
+                {client} <span className="ml-12 text-[#F24E24]/30">•</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ROW 2: Left to Right */}
+        <div className="relative flex overflow-hidden">
+          <div className="flex animate-marquee-reverse whitespace-nowrap gap-12 py-4">
+            {[...clientsRow2, ...clientsRow2].map((client, i) => (
+              <div 
+                key={i} 
+                className="text-2xl md:text-4xl font-display font-bold text-white/20 hover:text-[#F24E24] transition-colors duration-500 cursor-default select-none uppercase tracking-tighter italic"
+              >
+                {client} <span className="ml-12 text-[#F24E24]/30">•</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Global CSS for Smooth Infinite Loop */}
+      <style jsx>{`
+        .animate-marquee {
+          display: flex;
+          animation: marquee 40s linear infinite;
+        }
+        .animate-marquee-reverse {
+          display: flex;
+          animation: marquee-reverse 40s linear infinite;
+        }
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        @keyframes marquee-reverse {
+          0% { transform: translateX(-50%); }
+          100% { transform: translateX(0); }
+        }
+        /* Gradient Fades for the edges */
+        section::before, section::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          width: 150px;
+          z-index: 2;
+          pointer-events: none;
+        }
+        section::before {
+          left: 0;
+          background: linear-gradient(to right, #0B1220, transparent);
+        }
+        section::after {
+          right: 0;
+          background: linear-gradient(to left, #0B1220, transparent);
+        }
+      `}</style>
+    </section>
+</>
   );
 };
 

@@ -37,8 +37,17 @@ const stats = [
   { value: "5+", label: "Years Experience" },
 ];
 
+
+const clients = [
+  "Prestige Group", "Adani Realty", "Century Real Estate", "Embassy Group",
+  "Sattva Group", "Bhartiya City", "M3M India", "Shapoorji Pallonji",
+  "Deloitte", "Wipro", "Asian Paints", "HP",
+  "Volvo", "Karle Town Centre", "Bren Corp", "Svamitva",
+];
+
+
 const HeroSection = () => {
-  const title = "Transforming Spaces Into Immersive Digital Experiences";
+  const title = "Create your Virtual Space with us!";
   const words = title.split(" ");
 
   return (
@@ -100,9 +109,9 @@ const HeroSection = () => {
               data-cursor-text="GO" // <--- Trigger for Magnetic Cursor
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-4 border-gray-500 glass-card text-foreground font-medium text-sm bg-gray-400/20 hover:bg-[#F24E24] hover:border-[#F24E24] transition-all duration-500 group"
             >
-              Explore Our Work
+             Book For Demo
               <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                <FaArrowRightLong className="text-orange-200" />
+                <FaArrowRightLong className="text-orange-500 hover:text-black" />
               </motion.span>
             </a>
           </motion.div>
@@ -154,7 +163,7 @@ const HeroSection = () => {
             
             <motion.a
               variants={fadeUp}
-              href="#services"
+              href="/about"
               data-cursor-text="CLICK"
               className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-white/5 border border-white/20 text-white font-medium text-sm hover:bg-[#F24E24] transition-all duration-300"
             >
@@ -163,6 +172,7 @@ const HeroSection = () => {
           </motion.div>
         </div>
       </section>
+      
     </div>
   );
 };

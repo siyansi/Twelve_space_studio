@@ -92,7 +92,7 @@ export default function MagneticCursor() {
         </AnimatePresence>
 
         {/* 2. THE SPARKLE CRACKERS */}
-        {sparkles.map((sparkle) => (
+        {/* {sparkles.map((sparkle) => (
           <motion.div
             key={sparkle.id}
             initial={{ x: 0, y: 0, opacity: 1, scale: 1 }}
@@ -109,7 +109,7 @@ export default function MagneticCursor() {
               height: sparkle.size,
             }}
           />
-        ))}
+        ))} */}
       </motion.div>
 
       {/* 3. OPTIONAL: MOUSE TAIL GLOW */}
