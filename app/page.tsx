@@ -11,7 +11,7 @@ import VRProjectViewer from "@/pages/vr";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background relative selection:bg-[#B89150] selection:text-white" style={{ fontFamily: 'Poppins' }}>
+    <div className="min-h-screen  relative selection:bg-[#B89150] selection:text-white" style={{ fontFamily: 'Poppins' }}>
       
       {/* 1. Add the Magnetic Cursor Here */}
       <MagneticCursor />
@@ -23,7 +23,7 @@ export default function Home() {
         <ServicesSection />
         {/* <GlobeDemo /> */}
         <TestimonialsSection />
-<VRProjectViewer/>
+{/* <VRProjectViewer/> */}
         <FAQSection />
       </main>
 

@@ -312,7 +312,7 @@ const BlogSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-4xl  font-display font-bold text-white mb-6">
             Ready to Create Something <span className="text-gradient">Extraordinary</span>?
           </h2>
           <Link

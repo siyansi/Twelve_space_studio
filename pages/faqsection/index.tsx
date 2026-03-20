@@ -106,7 +106,7 @@ const FAQSection = () => {
       {/* Decorative background glow */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />
     </section>
-
+{/* 
 <section className="py-20 bg-[#0B132B] overflow-hidden border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6 mb-12 text-center">
         <motion.h6 
@@ -119,7 +119,7 @@ const FAQSection = () => {
       </div>
 
       <div className="flex flex-col gap-8">
-        {/* ROW 1: Right to Left */}
+      
         <div className="relative flex overflow-hidden">
           <div className="flex animate-marquee whitespace-nowrap gap-12 py-4">
             {[...clientsRow1, ...clientsRow1].map((client, i) => (
@@ -133,7 +133,7 @@ const FAQSection = () => {
           </div>
         </div>
 
-        {/* ROW 2: Left to Right */}
+     
         <div className="relative flex overflow-hidden">
           <div className="flex animate-marquee-reverse whitespace-nowrap gap-12 py-4">
             {[...clientsRow2, ...clientsRow2].map((client, i) => (
@@ -146,10 +146,10 @@ const FAQSection = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Global CSS for Smooth Infinite Loop */}
-      <style jsx>{`
+      {/* <style jsx>{`
         .animate-marquee {
           display: flex;
           animation: marquee 40s linear infinite;
@@ -166,7 +166,7 @@ const FAQSection = () => {
           0% { transform: translateX(-50%); }
           100% { transform: translateX(0); }
         }
-        /* Gradient Fades for the edges */
+       
         section::before, section::after {
           content: "";
           position: absolute;
@@ -185,7 +185,7 @@ const FAQSection = () => {
           background: linear-gradient(to left, #0B1220, transparent);
         }
       `}</style>
-    </section>
+    </section> */}
 </>
   );
 };

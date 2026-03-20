@@ -19,7 +19,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "12 Space Studio",
-  description: "Modern Digital Studio",
+  description: "Immersive 360° and digital experiences",
+  openGraph: {
+    title: "12 Space Studio",
+    description: "Explore Real & Digital Worlds",
+    url: "https://yourdomain.com",
+    siteName: "12 Space Studio",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

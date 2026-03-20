@@ -50,6 +50,8 @@ const HeroSection = () => {
   const title = "Create your Virtual Space with us!";
   const words = title.split(" ");
 
+
+  
   return (
     <div className="select-none">
       <section id="home" className="relative min-h-screen flex items-end pb-20 md:pb-32 overflow-hidden bg-black">
@@ -79,23 +81,27 @@ const HeroSection = () => {
             className="text-4xl md:text-5xl lg:text-6xl text-white/90 font-display font-bold leading-tight flex flex-wrap gap-x-3"
             data-cursor-text="EXPLORE" // <--- Trigger for Magnetic Cursor
           >
-            {words.map((word, wi) => (
-              <span key={wi} className="inline-flex overflow-hidden">
-                {word.split("").map((char, ci) => (
-                  <motion.span
-                    key={`${wi}-${ci}`}
-                    custom={wi * 4 + ci}
-                    variants={letterVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="inline-block"
-                    style={{ transformOrigin: "bottom" }}
-                  >
-                    {char}
-                  </motion.span>
-                ))}
-              </span>
+            {words.map((word, wi) => {
+        const isOrange = word === "Virtual" || word === "Space";
+        return (
+          <span key={wi} className="inline-flex overflow-hidden">
+            {word.split("").map((char, ci) => (
+              <motion.span
+                key={`${wi}-${ci}`}
+                // This 'custom' prop links to the (i) in letterVariants
+                custom={wi * 4 + ci} 
+                variants={letterVariants}
+                initial="hidden"
+                animate="visible"
+                className={`inline-block ${isOrange ? "text-orange-500" : "text-white/90"}`}
+                style={{ transformOrigin: "bottom" }}
+              >
+                {char}
+              </motion.span>
             ))}
+          </span>
+            )
+          })}
           </h1>
 
           <motion.div
@@ -105,7 +111,7 @@ const HeroSection = () => {
             className="mt-8"
           >
             <a
-              href="#services"
+              href="/contact"
               data-cursor-text="GO" // <--- Trigger for Magnetic Cursor
               className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full border-4 border-gray-500 glass-card text-foreground font-medium text-sm bg-gray-400/20 hover:bg-[#F24E24] hover:border-[#F24E24] transition-all duration-500 group"
             >

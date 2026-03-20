@@ -93,27 +93,27 @@
 // };
 
 // export default Navbar;
-
 "use client";
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // 1. Import usePathname
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/12SS_LOGO=¥-WHITE.png";
 import Image from "next/image";
+
 const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/concept" },
   { label: "Blogs", href: "/blogs" },
-  //  { label: "Concept", href: "/concept" },
   { label: "Contact", href: "/contact" },
-
 ];
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname(); // 2. Initialize pathname
 
   return (
     <motion.nav
@@ -125,39 +125,46 @@ const Navbar = () => {
       <div className="max-w-8xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20" style={{ fontFamily: 'Poppins' }}>
         
         {/* Logo */}
-       <Link href="/" className="flex items-cente gap-3 group">
-  <div className="relative w-14 h-10 md:w-28 md:h-14 transition-transform duration-300 group-hover:scale-110">
-    <Image
-      src={logo.src}
-      alt="12 Space Studio Logo"
-      fill
-      className=" object-contain"
-      priority // Ensures the logo loads instantly
-    />
-  </div>
+        <Link href="/" className="flex items-center gap-3 group">
+          <div className="relative w-14 h-10 md:w-28 md:h-14 transition-transform duration-300 group-hover:scale-110">
+            <Image
+              src={logo.src}
+              alt="12 Space Studio Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </Link>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((link, i) => (
-            <motion.li
-              key={link.href}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + i * 0.08 }}
-            >
-              <Link
-                href={link.href}
-                className="text-sm font-medium text-gray-400 hover:text-white transition-colors duration-200 relative
-                after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px]
-                after:bg-[#F97316] after:scale-x-0 after:origin-right
-                after:transition-transform after:duration-300
-                hover:after:scale-x-100 hover:after:origin-left"
+          {navLinks.map((link, i) => {
+            // 3. Check if link is active
+            const isActive = pathname === link.href;
+
+            return (
+              <motion.li
+                key={link.href}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.08 }}
               >
-                {link.label}
-              </Link>
-            </motion.li>
-          ))}
+                <Link
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors duration-200 relative
+                    after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px]
+                    after:bg-[#F97316] after:transition-transform after:duration-300
+                    ${isActive 
+                      ? "text-orange-500 after:scale-x-100" // Active Styles
+                      : "text-gray-400 hover:text-white after:scale-x-0 after:origin-right hover:after:scale-x-100 hover:after:origin-left" // Inactive Styles
+                    }`}
+                >
+                  {link.label}
+                </Link>
+              </motion.li>
+            );
+          })}
         </ul>
 
         {/* Mobile Toggle */}
@@ -181,22 +188,28 @@ const Navbar = () => {
             className="md:hidden bg-[#0B1220]/95 backdrop-blur-xl border-t border-white/10 overflow-hidden"
           >
             <ul className="flex flex-col py-4 px-6 gap-4">
-              {navLinks.map((link, i) => (
-                <motion.li
-                  key={link.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <Link
-                    href={link.href}
-                    className="text-sm font-medium text-gray-400 hover:text-[#F97316] transition-colors"
-                    onClick={() => setOpen(false)}
+              {navLinks.map((link, i) => {
+                const isActive = pathname === link.href; // Active check for mobile
+
+                return (
+                  <motion.li
+                    key={link.href}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
                   >
-                    {link.label}
-                  </Link>
-                </motion.li>
-              ))}
+                    <Link
+                      href={link.href}
+                      className={`text-sm font-medium transition-colors ${
+                        isActive ? "text-orange-500" : "text-gray-400 hover:text-[#F97316]"
+                      }`}
+                      onClick={() => setOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  </motion.li>
+                );
+              })}
             </ul>
           </motion.div>
         )}

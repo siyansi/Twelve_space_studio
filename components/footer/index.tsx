@@ -1,47 +1,76 @@
-"use client"; // Fixes the createMotionComponent error
+"use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link"; // Next.js optimized routing
+import Link from "next/link";
+import Image from "next/image";
+import { Instagram, Youtube, Linkedin, MapPin, Mail, Phone, ArrowUpRight } from "lucide-react";
+import logo from "@/assets/12SS_LOGO=¥-WHITE.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const socialLinks = [
+    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/twelve.space.studio/" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://in.linkedin.com/company/twelve.space.studio" },
+    { name: "YouTube", icon: Youtube, href: "https://youtube.com/@twelvespacestudio?si=YzL4YcwaLSS2z9AX" },
+  ];
+
   return (
     <footer id="contact" className="relative bg-black border-t border-white/10 overflow-hidden" style={{ fontFamily: 'Poppins' }}>
       
-      {/* Subtle background glow to merge with the section above */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" />
+      {/* Background Glows */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-16 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 py-12 relative z-10">
         <motion.div
-          className="grid md:grid-cols-3 gap-12"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
         >
-          {/* Brand Column */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold tracking-tighter text-white">
-              <span className="text-orange-500">12</span> SPACE STUDIO
-            </h3>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
+          {/* 1. BRAND COLUMN */}
+          <div className="space-y-6">
+            <div className="relative w-32 h-16 transition-transform duration-300 hover:scale-105">
+              <Image
+                src={logo.src}
+                alt="12 Space Studio Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+            <p className="text-gray-400 text-sm leading-relaxed">
               Bridging the gap between physical spaces and digital reality. 
-              Your premier <span className="text-white font-medium">PropTech</span> partner for immersive experiences.
+              Your premier <span className="text-white font-medium">PropTech</span> partner.
             </p>
+            <div className="flex gap-4">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-all duration-300"
+                >
+                  <social.icon size={18} />
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div className="md:pl-10">
-            <h4 className="text-xs font-bold text-orange-500 uppercase tracking-[0.2em] mb-6">
+          {/* 2. NAVIGATION */}
+          <div className="lg:pl-12">
+            <h4 className="text-xs font-bold text-orange-500 uppercase tracking-[0.2em] mb-8">
               Navigation
             </h4>
-            <ul className="space-y-3">
-              {["Home", "About", "Services", "Concept", "Projects"].map((link) => (
+            <ul className="space-y-4">
+              {["Home", "About", "Services", "Portfolio", "Contact"].map((link) => (
                 <li key={link}>
                   <Link
-                    href={link === "Home" ? "/" : `/${link.toLowerCase().replace(" ", "")}`}
-                    className="text-sm text-gray-500 hover:text-orange-500 transition-colors duration-300 flex items-center group"
+                    href={link === "Home" ? "/" : `/${link.toLowerCase()}`}
+                    className="text-sm text-gray-500 hover:text-white transition-colors duration-300 flex items-center group"
                   >
                     <span className="w-0 group-hover:w-4 h-px bg-orange-500 mr-0 group-hover:mr-2 transition-all duration-300" />
                     {link}
@@ -51,29 +80,55 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Services Column */}
+          {/* 3. CONTACT INFO */}
           <div>
-            <h4 className="text-xs font-bold text-orange-500 uppercase tracking-[0.2em] mb-6">
-              Expertise
+            <h4 className="text-xs font-bold text-orange-500 uppercase tracking-[0.2em] mb-8">
+              Get in Touch
             </h4>
-            <ul className="space-y-3">
-              {["Prop Tech", "Prop Branding", "Prop Marketing"].map((s) => (
-                <li key={s} className="text-sm text-gray-500 cursor-default hover:text-white transition-colors">
-                  {s}
-                </li>
-              ))}
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 group cursor-pointer">
+                <Mail size={16} className="text-gray-500 mt-1 group-hover:text-orange-500 transition-colors" />
+                <span className="text-sm text-gray-400 group-hover:text-white transition-colors">hello@twelvespace.studio</span>
+              </li>
+              <li className="flex items-start gap-3 group cursor-pointer">
+                <Phone size={16} className="text-gray-500 mt-1 group-hover:text-orange-500 transition-colors" />
+                <span className="text-sm text-gray-400 group-hover:text-white transition-colors">+91 98765 43210</span>
+              </li>
             </ul>
+          </div>
+
+          {/* 4. LOCATION */}
+          <div>
+            <h4 className="text-xs font-bold text-orange-500 uppercase tracking-[0.2em] mb-8">
+              Location
+            </h4>
+            <div className="flex items-start gap-3 group">
+              <MapPin size={18} className="text-orange-500 shrink-0 mt-1" />
+              <address className="not-italic text-sm text-gray-400 leading-relaxed group-hover:text-white transition-colors">
+                Twelve Space Studio,<br />
+                The Hive, Level 3. VR Mall,<br />
+                JN road, Anna Nagar,<br />
+                Chennai, India – 600040.
+              </address>
+            </div>
+            <Link 
+              href="https://maps.google.com" 
+              target="_blank" 
+              className="mt-4 inline-flex items-center gap-2 text-[10px] font-bold text-orange-500 uppercase tracking-widest hover:gap-3 transition-all"
+            >
+              View on Maps <ArrowUpRight size={12} />
+            </Link>
           </div>
         </motion.div>
 
-        {/* Bottom Bar */}
-        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[10px] text-gray-600 uppercase tracking-widest">
+        {/* BOTTOM BAR */}
+        <div className="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] text-gray-600 uppercase tracking-[0.2em]">
             © {currentYear} Twelve Space Studio. All rights reserved.
           </p>
-          <div className="flex gap-6">
-             <span className="text-[10px] text-gray-600 uppercase tracking-widest cursor-pointer hover:text-orange-500 transition-colors">Privacy</span>
-             <span className="text-[10px] text-gray-600 uppercase tracking-widest cursor-pointer hover:text-orange-500 transition-colors">Terms</span>
+          <div className="flex gap-8">
+            <Link href="/privacy" className="text-[10px] text-gray-600 uppercase tracking-widest hover:text-orange-500 transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="text-[10px] text-gray-600 uppercase tracking-widest hover:text-orange-500 transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

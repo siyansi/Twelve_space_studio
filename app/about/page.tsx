@@ -451,9 +451,9 @@ const [currentIndex, setCurrentIndex] = useState(0);
       {/* RIGHT STATS - 3D GLASSY CARDS */}
       <div className="lg:col-span-5 grid grid-cols-2 gap-8">
         {[ 
-          {v:"150+", l:"Projects"}, 
-          {v:"50+", l:"Clients"},
-          {v:"5+", l:"Years Exp"} 
+          {v:"", l:"Projects"}, 
+          {v:"", l:"Clients"},
+          {v:"", l:"Years Exp"} 
         ].map((s, i) => (
           <motion.div 
             key={i}
