@@ -92,7 +92,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3 group cursor-pointer">
                 <Phone size={16} className="text-gray-500 mt-1 group-hover:text-orange-500 transition-colors" />
-                <span className="text-sm text-gray-400 group-hover:text-white transition-colors">+91 98765 43210</span>
+                <span className="text-sm text-gray-400 group-hover:text-white transition-colors">+91 74487 26030</span>
               </li>
             </ul>
           </div>
