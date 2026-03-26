@@ -130,11 +130,11 @@ const HeroSection = () => {
           
           {/* Left Side: Stats */}
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}>
-            <motion.h6 variants={fadeUp} className="text-[#F24E24] text-sm font-bold uppercase tracking-[0.3em] mb-6">
+            <motion.h6 variants={fadeUp} className="text-[#F24E24] text-4xl font-bold uppercase tracking-[0.3em] mb-6">
               About Us
             </motion.h6>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -153,7 +153,7 @@ const HeroSection = () => {
                   </span>
                 </motion.div>
               ))}
-            </div>
+            </div> */}
           </motion.div>
 
           {/* Right Side: Text */}
@@ -168,13 +168,30 @@ const HeroSection = () => {
             </motion.p>
             
             <motion.a
-              variants={fadeUp}
-              href="/about"
-              data-cursor-text="CLICK"
-              className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-white/5 border border-white/20 text-white font-medium text-sm hover:bg-[#F24E24] transition-all duration-300"
-            >
-              Know More
-            </motion.a>
+  variants={fadeUp}
+  href="/about"
+  data-cursor-text="CLICK"
+  className="group inline-flex items-center justify-center px-10 py-4 rounded-full bg-white/5 border border-white/20 text-white font-medium text-sm hover:bg-[#F24E24] transition-all duration-300 gap-3"
+>
+  Know More
+  {/* The Animated Arrow */}
+  <motion.span
+    animate={{ 
+      x: [0, 5, 0] // Moves forward 5px and back to 0
+    }}
+    transition={{
+      duration: 1.5,
+      repeat: Infinity, // Constant subtle movement
+      ease: "easeInOut"
+    }}
+    whileHover={{ 
+      x: 10, // When hovering, it "hits" further forward
+      scale: 1.2 
+    }}
+  >
+    <FaArrowRightLong size={18} className="text-white group-hover:text-white" />
+  </motion.span>
+</motion.a>
           </motion.div>
         </div>
       </section>

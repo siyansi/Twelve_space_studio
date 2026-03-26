@@ -94,68 +94,49 @@ export default function Portfolio() {
       {/* FULLSCREEN MODAL */}
       {/* FULLSCREEN LANDSCAPE MODAL */}
 
-      <AnimatePresence>
+    <AnimatePresence>
   {modal && (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-     className="fixed inset-0 bg-black z-[9999] flex items-center justify-center"    >
+      // Use "pointer-events-auto" to ensure clicks are registered
+      className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center pointer-events-auto"
+    >
 
-      {/* CLOSE BUTTON */}
+      {/* CLOSE BUTTON - Increased z-index and padding */}
       <button
-        onClick={() => setModal(null)}
-        className="absolute top-4 left-4 z-[10000] p-4 bg-orange-200 text-black rounded-full shadow-xl active:scale-90 transition"
-        style={{ touchAction: "manipulation" }}
+        type="button" // Force button type to prevent form behavior
+        onClick={(e) => {
+          e.stopPropagation(); // Stop the click from bleeding into the background
+          setModal(null);      // This closes the modal
+          console.log("Modal closed"); // Check your browser console to see if this runs
+        }}
+        className="absolute top-6 right-6 z-[10001] p-4 bg-orange-400 text-white rounded-full shadow-2xl hover:scale-110 active:scale-90 transition-all"
+        style={{ cursor: 'pointer', touchAction: "manipulation" }}
       >
-        <X size={28} strokeWidth={3} />
+        <X size={30} strokeWidth={2.5} />
       </button>
 
-      {/* ROTATED FULLSCREEN VIEW */}
+      {/* FULLSCREEN VIEW */}
       <motion.div
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.9 }}
-        className="relative flex items-center justify-center"
+        initial={{ y: "100%" }}
+        animate={{ y: 0 }}
+        exit={{ y: "100%" }}
+        className="w-full h-full flex items-center justify-center"
       >
-
-        <div
-          className={`
-            relative bg-black overflow-hidden
-            ${isMobile ? "rotate-90" : ""}
-          `}
-          style={
-            isMobile
-              ? {
-                  width: "100vh",   // swapped
-                  height: "100vw",  // swapped
-                  transformOrigin: "center center",
-                }
-              : {
-                  width: "95vw",
-                  height: "90vh",
-                  borderRadius: "2rem",
-                }
-          }
-        >
-
-          {/* IFRAME */}
+        <div className="relative bg-black w-full h-full">
           <iframe
             src={modal}
-            className="w-full h-full"
+            className="w-full p-1 rounded-2xl h-full border-none"
             allowFullScreen
+            // Allow pointer events for the iframe content
+            style={{ pointerEvents: 'auto' }}
             allow="gyroscope; accelerometer; vr"
           />
-
         </div>
       </motion.div>
 
-      {/* MOBILE HINT */}
-      {isMobile && (
-        <div className="absolute bottom-4 text-[10px] tracking-widest text-white/40">
-          Forced Landscape Mode
-        </div>
-      )}
     </motion.div>
   )}
 </AnimatePresence>

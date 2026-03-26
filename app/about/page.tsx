@@ -414,15 +414,13 @@ const [currentIndex, setCurrentIndex] = useState(0);
       </div>
         
     </div>
-    <div className="pr-30 ">
-    <img 
-      src={heroimage2.src}
-      alt="Architectural visualization" 
-      className=" object-cover h-42  transition-transform duration-500 group-hover:scale-105 "
-    />
-    {/* Glowing border effect on hover */}
-    {/* <div className="absolute inset-0 border-2 border-orange-500/0 rounded-2xl group-hover:border-orange-500 group-hover:drop-shadow-[0_0_15px_rgba(255,107,0,0.5)] transition-all duration-300 pointer-events-none" /> */}
-  </div>
+   <div className="w-full pr-0 md:pr-30 mb-4 md:mb-0">
+  <img 
+    src={heroimage2.src}
+    alt="Architectural visualization" 
+    className="w-full object-cover h- md:h-42 transition-transform duration-500 group-hover:scale-105 rounded-xl"
+  />
+</div>
 </div>
     <div className="grid lg:grid-cols-12 gap-20 items-start">
       
@@ -493,30 +491,26 @@ const [currentIndex, setCurrentIndex] = useState(0);
 
     {/* IMAGE BLOCK */}
     <motion.div
-      initial={{ x: -500, opacity: 0 }}
+      initial={{ x: -100, opacity: 0 }} // Reduced x for better mobile performance
       whileInView={{ x: 0, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className="relative group rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-white/10 shadow-[0_40px_120px_-20px_rgba(0,0,0,0.8)]"
+      className="relative group rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-white/10 shadow-[0_40px_120px_-20px_rgba(0,0,0,0.8)] bg-zinc-900"
     >
-
-      {/* Image */}
-      <div className="w-full h-full bg-zinc-900 flex flex-col items-center justify-center text-gray-500 group-hover:scale-105 transition-transform duration-700">
-        {/* Replace this with your Image */}
-          <Image 
-            src={heroimage}
-            alt="Ar. Jeevanandham"
-              className="object-cover w-full h-full"
-           
-          />
-        {/* <span className="italic text-lg">Ar. Jeevanandham</span>
-        <span className="text-[10px] uppercase tracking-widest mt-2">
-          Founder & Creative Director
-        </span> */}
+      {/* Image Container - Removed aspect-square to follow parent aspect ratio */}
+      <div className="w-full h-full relative overflow-hidden">
+        <Image 
+          src={heroimage}
+          alt="Ar. Jeevanandham"
+          fill // Using fill + object-cover is the most reliable way in Next.js
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw" // Helps Next.js optimize for mobile
+        />
       </div>
 
       {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10 opacity-60 pointer-events-none" />
 
       {/* Bottom Accent Line */}
       <div className="absolute bottom-0 left-0 w-full h-[3px] bg-gradient-to-r from-orange-500 via-red-500 to-orange-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-left z-20" />

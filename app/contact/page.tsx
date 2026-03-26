@@ -1,13 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { Send, Linkedin, Youtube, Instagram, MapPin, Phone, Mail } from "lucide-react";
+import { useState , useEffect } from "react";
+import { Send, Linkedin, Youtube, Instagram, Facebook, MapPin, Phone, Mail } from "lucide-react";
+import { IoLogoPinterest } from "react-icons/io";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  setIsMobile(window.innerWidth < 768);
+}, []);
+
 
 const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,9 +55,11 @@ const handleSubmit = async (e: React.FormEvent) => {
     { icon: <Linkedin size={20} />, link: "https://in.linkedin.com/company/twelve-space-studio", color: "#0077b5" },
     { icon: <Youtube size={20} />, link: "https://youtube.com/@twelvespacestudio", color: "#ff0000" },
     { icon: <Instagram size={20} />, link: "https://www.instagram.com/twelve.space.studio/", color: "#e1306c" },
+    { icon: <Facebook size={20} />, link: "https://www.facebook.com/profile.php?id=61576509179121", color: "#1877f2" },
+    { icon: <IoLogoPinterest size={20} />, link: "https://pin.it/445q3bZkY", color: "#bd081c" },
   ];
 
-  return (
+  return (  
     <section id="contact" className="section-padding relative min-h-screen overflow-hidden bg-[#0B1220] py-20 mt-18 px-4">
       {/* Background Animated Text - Updated to Orange tint */}
       <div className="absolute inset-0 flex md:mt-32 justify-center pointer-events-none select-none opacity-10">
@@ -110,19 +119,26 @@ const handleSubmit = async (e: React.FormEvent) => {
             </div>
 
             {/* Socials & Quick Contact */}
-            <div className="flex flex-wrap gap-4">
-              {socials.map((soc, i) => (
-                <motion.a
-                  key={i}
-                  href={soc.link}
-                  target="_blank"
-                  whileHover={{ y: -5, backgroundColor: "#FF6B00", color: "#fff" }}
-                  className="w-12 h-12 flex items-center justify-center rounded-2xl bg-white/5 border border-white/10 text-white transition-all"
-                >
-                  {soc.icon}
-                </motion.a>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-4">
+  {socials.map((soc, i) => (
+    <motion.a
+      key={i}
+      href={soc.link}
+      target="_blank"
+      // Desktop Hover: Smoothly transition to the brand color
+      whileHover={{ y: -5, backgroundColor: soc.color, borderColor: soc.color }}
+      // Styling
+      className="w-12 h-12 flex items-center justify-center rounded-2xl border border-white/10 text-white transition-all duration-300"
+      style={{ 
+        // Logic: On mobile, show the brand color. On desktop, show dark glass.
+        backgroundColor: isMobile ? soc.color : "rgba(255, 255, 255, 0.05)",
+        borderColor: isMobile ? soc.color : "rgba(255, 255, 255, 0.1)"
+      }}
+    >
+      {soc.icon}
+    </motion.a>
+  ))}
+</div>
           </motion.div>
 {/* RIGHT COLUMN: THE FORM */}
           <motion.form
