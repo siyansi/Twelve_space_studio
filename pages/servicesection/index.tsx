@@ -430,8 +430,8 @@ const REAL_WORLD_DATA = {
   projects: [
     { title: "Property Digital Twin", link: "https://tour.panoee.net/6951f90c0ea9931508f27de7/6951fff60ea993d2a7f27e47", tag: "360° Capture" },
     { title: "Drone Property Capture", link: "https://tour.panoee.net/696b39ea3a9dfa421e61199c/696b3be3d66679591968afe3", tag: "Aerial Mapping" },
-    { title: "Luxury RED_HOUSE Tour", link: "https://Twelvespacestudio.com/360/PRO_26/12SS001/A/RED_HOUSE/", tag: "High-Fidelity" },
-    { title: "Premium Villa Interior", link: "https://twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", tag: "Virtual Tour" }
+    { title: "Luxury RED_HOUSE Tour", link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", tag: "High-Fidelity" },
+    // { title: "Premium Villa Interior", link: "https://twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", tag: "Virtual Tour" }
   ],
   features: [
     { icon: Globe, title: "360° Tours", desc: "Interactive walkthroughs." },

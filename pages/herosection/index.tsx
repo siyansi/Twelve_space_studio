@@ -32,9 +32,9 @@ const fadeUp: Variants = {
 };
 
 const stats = [
-  { value: "150+", label: "Projects Delivered" },
-  { value: "50+", label: "Happy Clients" },
-  { value: "5+", label: "Years Experience" },
+  { value: "", label: "Projects Delivered" },
+  { value: "", label: "Happy Clients" },
+  { value: "", label: "Years Experience" },
 ];
 
 
