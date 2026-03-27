@@ -18,13 +18,13 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "12 Space Studio",
+  title: "TwelveSpaceStudio",
   description: "Immersive 360° and digital experiences",
   openGraph: {
-    title: "12 Space Studio",
+    title: "TwelveSpaceStudio",
     description: "Explore Real & Digital Worlds",
     url: "https://yourdomain.com",
-    siteName: "12 Space Studio",
+    siteName: "TwelveSpaceStudio",
     images: [
       {
         url: "/og-image.jpg",
