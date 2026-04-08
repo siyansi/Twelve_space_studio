@@ -3,16 +3,19 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { Instagram, Youtube, Linkedin, MapPin, Mail, Phone, ArrowUpRight } from "lucide-react";
+import { Instagram, Youtube, Linkedin, MapPin, Mail,Facebook, Phone, ArrowUpRight } from "lucide-react";
 import logo from "@/assets/12SS_LOGO=¥-WHITE.png";
+import { IoLogoPinterest } from "react-icons/io";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const socialLinks = [
-    { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/twelve.space.studio/" },
-    { name: "LinkedIn", icon: Linkedin, href: "https://in.linkedin.com/company/twelve.space.studio" },
-    { name: "YouTube", icon: Youtube, href: "https://youtube.com/@twelvespacestudio?si=YzL4YcwaLSS2z9AX" },
+     { icon: <Linkedin size={20} />, link: "https://in.linkedin.com/company/twelve-space-studio", color: "#0077b5" },
+    { icon: <Youtube size={20} />, link: "https://youtube.com/@twelvespacestudio", color: "#ff0000" },
+    { icon: <Instagram size={20} />, link: "https://www.instagram.com/twelve.space.studio/", color: "#e1306c" },
+    { icon: <Facebook size={20} />, link: "https://www.facebook.com/profile.php?id=61576509179121", color: "#1877f2" },
+    { icon: <IoLogoPinterest size={20} />, link: "https://pin.it/445q3bZkY", color: "#bd081c" },
   ];
 
   return (
@@ -46,15 +49,15 @@ const Footer = () => {
               Your premier <span className="text-white font-medium">PropTech</span> partner.
             </p>
             <div className="flex gap-4">
-              {socialLinks.map((social) => (
+              {socialLinks.map((social, index) => (
                 <a
-                  key={social.name}
-                  href={social.href}
+                  key={index}
+                  href={social.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-black hover:border-orange-500 transition-all duration-300"
                 >
-                  <social.icon size={18} />
+                  {social.icon}
                 </a>
               ))}
             </div>

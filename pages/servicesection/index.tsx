@@ -413,7 +413,7 @@
 // export default Concepts;
 "use client";
 
-import { useState, useEffect  } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Globe, Cpu, Zap, ArrowRight, Expand, Boxes, Layers, Play } from "lucide-react";
 import concept02 from "@/assets/blending-futuristic-building-seamlessly-into-desert-landscape.jpg";
@@ -427,17 +427,48 @@ const REAL_WORLD_DATA = {
   bg: "bg-[#0a0f1d]",
   border: "border-orange-500/20",
   glow: "bg-orange-500/20",
-  projects: [
-    { title: "Property Digital Twin", link: "https://tour.panoee.net/6951f90c0ea9931508f27de7/6951fff60ea993d2a7f27e47", tag: "360° Capture" },
-    { title: "Drone Property Capture", link: "https://tour.panoee.net/696b39ea3a9dfa421e61199c/696b3be3d66679591968afe3", tag: "Aerial Mapping" },
-    { title: "Luxury RED_HOUSE Tour", link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", tag: "High-Fidelity" },
-    // { title: "Premium Villa Interior", link: "https://twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", tag: "Virtual Tour" }
-  ],
-  features: [
-    { icon: Globe, title: "360° Tours", desc: "Interactive walkthroughs." },
-    { icon: Zap, title: "Ultra HD", desc: "High-res environments." },
-    { icon: Layers, title: "Insights", desc: "Spatial context." }
-  ]
+ projects: [
+  { 
+    title: "Luxury Villa Interior", 
+    link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", 
+    tag: "High-Fidelity" 
+  },
+  { 
+    title: "The Hive Experience", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00B/THE_HIVE/", 
+    tag: "360° Walkthrough" 
+  },
+  { 
+    title: "Red House Residence", 
+    link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS001/A/RED_HOUSE/", 
+    tag: "Property Capture" 
+  },
+  { 
+    title: "Tooth Embassy Clinic", 
+    link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS001/B/TOOTH_EMBASSY/", 
+    tag: "Commercial Space" 
+  },
+  { 
+    title: "Victoria Public Hall", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00E/VICTORIA_PUBLIC_HALL/", 
+    tag: "Heritage Site" 
+  },
+  { 
+    title: "Property Digital Twin", 
+    link: "https://tour.panoee.net/6951f90c0ea9931508f27de7/6951fff60ea993d2a7f27e47", 
+    tag: "360° Capture" 
+  },
+  { 
+    title: "Drone Property Capture", 
+    link: "https://tour.panoee.net/696b39ea3a9dfa421e61199c/696b3be3d66679591968afe3", 
+    tag: "Aerial Mapping" 
+  }
+],
+features: [
+  { icon: Globe, title: "360° Tours", desc: "Interactive walkthroughs." },
+  { icon: Zap, title: "Ultra HD", desc: "High-res environments." },
+  { icon: Layers, title: "Insights", desc: "Spatial context." }
+]
 };
 
 const DIGITAL_WORLD_DATA = {
@@ -447,35 +478,69 @@ const DIGITAL_WORLD_DATA = {
   bg: "bg-[#050b1a]",
   border: "border-blue-500/20",
   glow: "bg-blue-500/20",
-  projects: [
-    { title: "Virtual Architectural Experience", link: "https://tour.panoee.net/696238c74854312b4e38b5b0/696780f121ea031b2285c4f3", tag: "CGI Concepts" },
-    { title: "Interactive 3D Concept", link: "https://tour.panoee.net/6963d30e786f1f4c96e14a3c/696785b7e92ddd56ef5f003e", tag: "Real-time" }
-  ],
-  features: [
-    { icon: Cpu, title: "3D Digital", desc: "Fully immersive CGI." },
-    { icon: Boxes, title: "Real-Time", desc: "Cinematic pipelines." },
-    { icon: Zap, title: "Metaverse", desc: "VR & AR ready." }
-  ]
+ projects: [
+  { 
+    title: "Mechtrix Industrial Concept", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00C/MECHTRIX/", 
+    tag: "CGI Pipeline" 
+  },
+  { 
+    title: "Virtual Site Simulation", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00A/VIRTUAL_SITE/", 
+    tag: "Real-time 3D" 
+  },
+  { 
+    title: "Thirthahalli Concept", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00F/THIRTHAHALLI/", 
+    tag: "Metaverse Ready" 
+  },
+  { 
+    title: "English Garden Visualization", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00D/ENGLISH_GARDEN/", 
+    tag: "Immersive Env" 
+  },
+  { 
+    title: "Architectural Concept Preview", 
+    link: "https://tour.panoee.net/preview?tour=696238c74854312b4e38b5b0&scene=696780f1e92ddd82065eff81", 
+    tag: "Digital Reality" 
+  },
+  { 
+    title: "Virtual Architectural Experience", 
+    link: "https://tour.panoee.net/696238c74854312b4e38b5b0/696780f121ea031b2285c4f3", 
+    tag: "CGI Concepts" 
+  },
+  { 
+    title: "Interactive 3D Concept", 
+    link: "https://tour.panoee.net/6963d30e786f1f4c96e14a3c/696785b7e92ddd56ef5f003e", 
+    tag: "Real-time" 
+  }
+],
+features: [
+  { icon: Cpu, title: "3D Digital", desc: "Fully immersive CGI." },
+  { icon: Boxes, title: "Real-Time", desc: "Cinematic pipelines." },
+  { icon: Zap, title: "Metaverse", desc: "VR & AR ready." }
+]
 };
 
 // ─── MAIN COMPONENT ───────────────────────────────────────
 export default function Portfolio() {
   const [modal, setModal] = useState<string | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-    useEffect(() => {
-      const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-      checkMobile();
-      window.addEventListener("resize", checkMobile);
-      return () => window.removeEventListener("resize", checkMobile);
-    }, []);
-  
+
+// Detect mobile for the rotation logic
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <main className="cursor-none bg-[#0B132B] min-h-screen text-white">
       <MagneticCursor />
 
       {/* HERO SECTION */}
-       <div className="text-center">
+       <div className="text-center mb-1 pt-">
             {/* <motion.h6
               key={active}
               initial={{ y: 20, opacity: 0 }}
@@ -504,74 +569,59 @@ export default function Portfolio() {
       </section>
 
       {/* FULLSCREEN MODAL */}
-      <AnimatePresence>
+      {/* FULLSCREEN LANDSCAPE MODAL */}
+
+    <AnimatePresence>
   {modal && (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-     className="fixed inset-0 bg-black z-[9999] flex items-center justify-center"    >
+      // Use "pointer-events-auto" to ensure clicks are registered
+      className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center pointer-events-auto"
+    >
 
-      {/* CLOSE BUTTON */}
+      {/* CLOSE BUTTON - Increased z-index and padding */}
       <button
-        onClick={() => setModal(null)}
-        className="absolute top-4 left-4 z-[10000] p-4 bg-orange-200 text-black rounded-full shadow-xl active:scale-90 transition"
-        style={{ touchAction: "manipulation" }}
+        type="button" // Force button type to prevent form behavior
+        onClick={(e) => {
+          e.stopPropagation(); // Stop the click from bleeding into the background
+          setModal(null);      // This closes the modal
+          console.log("Modal closed"); // Check your browser console to see if this runs
+        }}
+        className="absolute top-6 right-6 z-[10001] p-4 bg-orange-400 text-white rounded-full shadow-2xl hover:scale-110 active:scale-90 transition-all"
+        style={{ cursor: 'pointer', touchAction: "manipulation" }}
       >
-        <X size={28} strokeWidth={3} />
+        <X size={30} strokeWidth={2.5} />
       </button>
 
-      {/* ROTATED FULLSCREEN VIEW */}
+      {/* FULLSCREEN VIEW */}
       <motion.div
-        initial={{ scale: 0.9 }}
-        animate={{ scale: 1 }}
-        exit={{ scale: 0.9 }}
-        className="relative flex items-center justify-center"
+        initial={{ y: "100%" }}
+        animate={{ y: 0 }}
+        exit={{ y: "100%" }}
+        className="w-full h-full flex items-center justify-center"
       >
-
-        <div
-          className={`
-            relative bg-black overflow-hidden
-            ${isMobile ? "rotate-90" : ""}
-          `}
-          style={
-            isMobile
-              ? {
-                  width: "100vh",   // swapped
-                  height: "100vw",  // swapped
-                  transformOrigin: "center center",
-                }
-              : {
-                  width: "95vw",
-                  height: "90vh",
-                  borderRadius: "2rem",
-                }
-          }
-        >
-
-          {/* IFRAME */}
+        <div className="relative bg-black w-full h-full">
           <iframe
             src={modal}
-            className="w-full h-full"
+            className="w-full p-1 rounded-2xl h-full border-none"
             allowFullScreen
+            // Allow pointer events for the iframe content
+            style={{ pointerEvents: 'auto' }}
             allow="gyroscope; accelerometer; vr"
           />
-
         </div>
       </motion.div>
 
-      {/* MOBILE HINT */}
-      {isMobile && (
-        <div className="absolute bottom-4 text-[10px] tracking-widest text-white/40">
-          Forced Landscape Mode
-        </div>
-      )}
     </motion.div>
   )}
 </AnimatePresence>
     </main>
   );
 }
+   
+  
 
 // ─── THE NEW MINI BOX COMPONENT ──────────────────────────
 function WorldPane({ data, setModal }: { data: any, setModal: (l: string) => void }) {
@@ -674,5 +724,6 @@ function WorldPane({ data, setModal }: { data: any, setModal: (l: string) => voi
   ))}
 </div>
     </div>
+   
   );
 }

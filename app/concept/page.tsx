@@ -14,17 +14,48 @@ const REAL_WORLD_DATA = {
   bg: "bg-[#0a0f1d]",
   border: "border-orange-500/20",
   glow: "bg-orange-500/20",
-  projects: [
-    { title: "Property Digital Twin", link: "https://tour.panoee.net/6951f90c0ea9931508f27de7/6951fff60ea993d2a7f27e47", tag: "360° Capture" },
-    { title: "Drone Property Capture", link: "https://tour.panoee.net/696b39ea3a9dfa421e61199c/696b3be3d66679591968afe3", tag: "Aerial Mapping" },
-    { title: "Luxury RED_HOUSE Tour", link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", tag: "High-Fidelity" },
-    // { title: "Premium Villa Interior", link: "https://twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", tag: "Virtual Tour" }
-  ],
-  features: [
-    { icon: Globe, title: "360° Tours", desc: "Interactive walkthroughs." },
-    { icon: Zap, title: "Ultra HD", desc: "High-res environments." },
-    { icon: Layers, title: "Insights", desc: "Spatial context." }
-  ]
+ projects: [
+  { 
+    title: "Luxury Villa Interior", 
+    link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS002/A/VILLA_INTERIOR/", 
+    tag: "High-Fidelity" 
+  },
+  { 
+    title: "The Hive Experience", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00B/THE_HIVE/", 
+    tag: "360° Walkthrough" 
+  },
+  { 
+    title: "Red House Residence", 
+    link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS001/A/RED_HOUSE/", 
+    tag: "Property Capture" 
+  },
+  { 
+    title: "Tooth Embassy Clinic", 
+    link: "https://virtual.twelvespacestudio.com/360/PRO_26/12SS001/B/TOOTH_EMBASSY/", 
+    tag: "Commercial Space" 
+  },
+  { 
+    title: "Victoria Public Hall", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00E/VICTORIA_PUBLIC_HALL/", 
+    tag: "Heritage Site" 
+  },
+  { 
+    title: "Property Digital Twin", 
+    link: "https://tour.panoee.net/6951f90c0ea9931508f27de7/6951fff60ea993d2a7f27e47", 
+    tag: "360° Capture" 
+  },
+  { 
+    title: "Drone Property Capture", 
+    link: "https://tour.panoee.net/696b39ea3a9dfa421e61199c/696b3be3d66679591968afe3", 
+    tag: "Aerial Mapping" 
+  }
+],
+features: [
+  { icon: Globe, title: "360° Tours", desc: "Interactive walkthroughs." },
+  { icon: Zap, title: "Ultra HD", desc: "High-res environments." },
+  { icon: Layers, title: "Insights", desc: "Spatial context." }
+]
 };
 
 const DIGITAL_WORLD_DATA = {
@@ -34,15 +65,48 @@ const DIGITAL_WORLD_DATA = {
   bg: "bg-[#050b1a]",
   border: "border-blue-500/20",
   glow: "bg-blue-500/20",
-  projects: [
-    { title: "Virtual Architectural Experience", link: "https://tour.panoee.net/696238c74854312b4e38b5b0/696780f121ea031b2285c4f3", tag: "CGI Concepts" },
-    { title: "Interactive 3D Concept", link: "https://tour.panoee.net/6963d30e786f1f4c96e14a3c/696785b7e92ddd56ef5f003e", tag: "Real-time" }
-  ],
-  features: [
-    { icon: Cpu, title: "3D Digital", desc: "Fully immersive CGI." },
-    { icon: Boxes, title: "Real-Time", desc: "Cinematic pipelines." },
-    { icon: Zap, title: "Metaverse", desc: "VR & AR ready." }
-  ]
+ projects: [
+  { 
+    title: "Mechtrix Industrial Concept", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00C/MECHTRIX/", 
+    tag: "CGI Pipeline" 
+  },
+  { 
+    title: "Virtual Site Simulation", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00A/VIRTUAL_SITE/", 
+    tag: "Real-time 3D" 
+  },
+  { 
+    title: "Thirthahalli Concept", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00F/THIRTHAHALLI/", 
+    tag: "Metaverse Ready" 
+  },
+  { 
+    title: "English Garden Visualization", 
+    link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00D/ENGLISH_GARDEN/", 
+    tag: "Immersive Env" 
+  },
+  { 
+    title: "Architectural Concept Preview", 
+    link: "https://tour.panoee.net/preview?tour=696238c74854312b4e38b5b0&scene=696780f1e92ddd82065eff81", 
+    tag: "Digital Reality" 
+  },
+  { 
+    title: "Virtual Architectural Experience", 
+    link: "https://tour.panoee.net/696238c74854312b4e38b5b0/696780f121ea031b2285c4f3", 
+    tag: "CGI Concepts" 
+  },
+  { 
+    title: "Interactive 3D Concept", 
+    link: "https://tour.panoee.net/6963d30e786f1f4c96e14a3c/696785b7e92ddd56ef5f003e", 
+    tag: "Real-time" 
+  }
+],
+features: [
+  { icon: Cpu, title: "3D Digital", desc: "Fully immersive CGI." },
+  { icon: Boxes, title: "Real-Time", desc: "Cinematic pipelines." },
+  { icon: Zap, title: "Metaverse", desc: "VR & AR ready." }
+]
 };
 
 // ─── MAIN COMPONENT ───────────────────────────────────────
