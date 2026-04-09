@@ -40,16 +40,16 @@ const REAL_WORLD_DATA = {
     link: "https://virtual.twelvespacestudio.com/360/PORT/12SS00E/VICTORIA_PUBLIC_HALL/", 
     tag: "Heritage Site" 
   },
-  { 
-    title: "Property Digital Twin", 
-    link: "https://tour.panoee.net/6951f90c0ea9931508f27de7/6951fff60ea993d2a7f27e47", 
-    tag: "360° Capture" 
-  },
-  { 
-    title: "Drone Property Capture", 
-    link: "https://tour.panoee.net/696b39ea3a9dfa421e61199c/696b3be3d66679591968afe3", 
-    tag: "Aerial Mapping" 
-  }
+  // { 
+  //   title: "Property Digital Twin", 
+  //   link: "https://tour.panoee.net/6951f90c0ea9931508f27de7/6951fff60ea993d2a7f27e47", 
+  //   tag: "360° Capture" 
+  // },
+  // { 
+  //   title: "Drone Property Capture", 
+  //   link: "https://tour.panoee.net/696b39ea3a9dfa421e61199c/696b3be3d66679591968afe3", 
+  //   tag: "Aerial Mapping" 
+  // }
 ],
 features: [
   { icon: Globe, title: "360° Tours", desc: "Interactive walkthroughs." },
@@ -88,19 +88,19 @@ const DIGITAL_WORLD_DATA = {
   },
   { 
     title: "Architectural Concept Preview", 
-    link: "https://tour.panoee.net/preview?tour=696238c74854312b4e38b5b0&scene=696780f1e92ddd82065eff81", 
+    link: "https://tour.panoee.net/696238c74854312b4e38b5b0", 
     tag: "Digital Reality" 
   },
-  { 
-    title: "Virtual Architectural Experience", 
-    link: "https://tour.panoee.net/696238c74854312b4e38b5b0/696780f121ea031b2285c4f3", 
-    tag: "CGI Concepts" 
-  },
-  { 
-    title: "Interactive 3D Concept", 
-    link: "https://tour.panoee.net/6963d30e786f1f4c96e14a3c/696785b7e92ddd56ef5f003e", 
-    tag: "Real-time" 
-  }
+  // { 
+  //   title: "Virtual Architectural Experience", 
+  //   link: "https://tour.panoee.net/696238c74854312b4e38b5b0/696780f121ea031b2285c4f3", 
+  //   tag: "CGI Concepts" 
+  // },
+  // { 
+  //   title: "Interactive 3D Concept", 
+  //   link: "https://tour.panoee.net/6963d30e786f1f4c96e14a3c/696785b7e92ddd56ef5f003e", 
+  //   tag: "Real-time" 
+  // }
 ],
 features: [
   { icon: Cpu, title: "3D Digital", desc: "Fully immersive CGI." },
